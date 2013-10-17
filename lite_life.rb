@@ -56,7 +56,7 @@ def print_board(b)
 end
 
 @peggy = Peggy.new
-@peggy.lease(1)
+@peggy.lease(3)
 reset()
 
 @board = Matrix.build(MAX_H,MAX_W) { false }
