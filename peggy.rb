@@ -43,7 +43,7 @@ class Peggy
   
   def write(x,y,text = "")
     ensure_lease
-    self.class.get("/write/#{self.lease_code}/#{x}/#{y}/#{URI::encode(text)}")
+    self.class.get("/write/#{self.lease_code}/#{y}/#{x}/#{URI::encode(text)}")
   end
   
   def expired?
