@@ -13,10 +13,8 @@ class Matrix
 end
 
 def reset
-  @peggy.clear
-  @peggy.color(:red)
-  @peggy.write(0,0,"GAME OF LIFE - v1")
-  @peggy.color(:green)
+  @peggy.clear(0)
+  @peggy.write(0,0,0,"{r}GAME OF LIFE - v1{g}")
 end
 
 def random_board
@@ -51,12 +49,11 @@ end
 def print_board(b)
   b.row_count.times do |r|
     row_string = b.row(r).collect{|v| v ? "#" : " "}.to_a.join("")
-    @peggy.write(r+1,0,row_string)
+    @peggy.write(0,0,r+1,row_string)
   end
 end
 
 @peggy = Peggy.new
-@peggy.lease(3)
 reset()
 
 @board = Matrix.build(MAX_H,MAX_W) { false }
@@ -66,7 +63,7 @@ reset()
 random_board
 print_board(@board)
 
-while !@peggy.expired? do
+while true do
   if (Time.now - @last_update) > 3
     update_board()
     print_board(@board)
