@@ -64,7 +64,7 @@ random_board
 print_board(@board)
 
 while true do
-  if (Time.now - @last_update) > 3
+  if (Time.now - @last_update) > 1
     update_board()
     print_board(@board)
   end
